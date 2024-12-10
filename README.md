@@ -15,7 +15,7 @@ The goal of the challenge was to design the lightest possible bracket while ensu
 
 ## Methodology 
 
-The SimJEB database only provides the mechanical behavior of brackets made from Ti-6Al-4V. However, this project aims to expand on this by, on the one hand, computing the environmental impact of these brackets and, on the other, incorporating additional materials commonly used in the aerospace industry. For this purpose, we have relied on the material dataset previously developed by [Yepes Llorente and Morlier](https://github.com/mid2SUPAERO/HybML-EvoMatDesEco/).
+The SimJEB database only provides the mechanical behavior of brackets made from Ti-6Al-4V. However, this project aims to expand on this by, on the one hand, computing the environmental impact of these brackets and, on the other, incorporating additional materials commonly used in the aerospace industry. For this purpose, the material dataset previously developed by [Yepes Llorente and Morlier](https://github.com/mid2SUPAERO/HybML-EvoMatDesEco/) has been used.
 
 The materials considered include BeCu-C17000, Al2024 and AISI 304, apart from the Ti-6Al-4V. Environmental properties such as energy consumption, CO2 footprint and water usage are given per unit mass. Consequently, the total environmental footprint is computed as the product of the total mass of the structure (M) and the specific energy or water usage.
 
@@ -32,12 +32,14 @@ Using a Python script, the .fem files are modified to introduce new materials in
 The aim of the project is to identify structures with the lowest environmental impact. However, because this is a multi-objective optimization problem, there is no single optimal solution but rather a Pareto Front—a set of solutions representing the trade-offs between conflicting objectives.
 
 The multi-objective optimization problem is defined as follows: the aim is to minimize stress, water usage, CO2 emissions, and energy consumption, subject to the constraint that the maximum stress does not exceed the yield stress of the material. It is important to note that deformation is considered a flexible constraint, as there is no specified maximum allowable displacement for the structures.
-$$
+
+```math
 \begin{aligned}
     & \min \sigma, H_2O, CO_2, E \\
     & \text{s.t. } \sigma - \sigma_{yield} \leq 0 \\
 \end{aligned}
-$$
+
+```
 
 Using the [Pymoo](https://pymoo.org/index.html)/) library, the NSGA-II algorithm can be applied to solve this optimization problem and identify the Pareto Front solutions.
 
