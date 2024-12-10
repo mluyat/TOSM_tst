@@ -17,13 +17,13 @@ The Simulated Jet Engine Bracket Dataset (SimJEB)[^1] is a public shape collecti
 ## Methodology 
 
 SimJEB only offers the results for Ti-6Al-4V. However, this project aimed at increasing the number of materials used. Using [Yepes Llorente and Morlier](https://github.com/mid2SUPAERO/HybML-EvoMatDesEco/) material database material properties and the environmantal impact of the structures can be obtained. The materials chosen are BeCu-C17000, Al2024, Ti-6Al-4V and AISI 304. All environmental properties are given by unit of mass, so the total footptrint is given by the total mass of the structure times the energy or water usage. For the CO2, however not only the CO2 during production but also the emissions during the life of the aircraft. Duriez and Morlier [^2] gives an approximate value of this last term given by the equation below.
-$ CO_{2,T} = CO_{2,prod} +CO_{2,life} = CO_{2,prod} +98.8 \frac{ tonnes of CO2}{kg structure} \cdot M $ 
+$  $ 
 
 
 
 
 ```math
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+CO_{2,T} = CO_{2,prod} +CO_{2,life} = CO_{2,prod} +98.8 \frac{ tonnes of CO2}{kg structure} \cdot M
 ```
 
 
