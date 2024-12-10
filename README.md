@@ -8,7 +8,7 @@ With this in mind, this project aims at developing a database on environmental i
 
 ## SimJEB
 
-The Simulated Jet Engine Bracket Dataset (SimJEB) [^1] is a public shape collection consisting of 381 brackets that are used for the same engineering task. Each bracket took part in the GE Jet Engine Bracket Challenge and every single model has the same four bolts and interface point so they can use for the same engineering task. The aim was to design the lightest bracket with the maximum stress below the yiled stress of Ti-6Al-4V across 4 load cases (vertical, diagonal, horizontal and torsional). 
+The Simulated Jet Engine Bracket Dataset (SimJEB)[^1] is a public shape collection consisting of 381 brackets that are used for the same engineering task. Each bracket took part in the GE Jet Engine Bracket Challenge and every single model has the same four bolts and interface point so they can use for the same engineering task. The aim was to design the lightest bracket with the maximum stress below the yiled stress of Ti-6Al-4V across 4 load cases (vertical, diagonal, horizontal and torsional). 
 
 ## Methodology 
 
