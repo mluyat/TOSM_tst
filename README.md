@@ -15,28 +15,30 @@ The goal of the challenge was to design the lightest possible bracket while ensu
 
 ## Methodology 
 
-SimJEB database only provides the mechanical behaviour of the brackets for ti-6Al-4V. This project, however, aims on the one hand to compute the environmental impact of these brackets and on the other incorporate additional materials used in the aerospace domain
+The SimJEB database only provides the mechanical behavior of brackets made from Ti-6Al-4V. However, this project aims to expand on this by, on the one hand, computing the environmental impact of these brackets and, on the other, incorporating additional materials commonly used in the aerospace industry. For this purpose, we have relied on the material dataset previously developed by [Yepes Llorente and Morlier](https://github.com/mid2SUPAERO/HybML-EvoMatDesEco/).
 
+The materials considered include BeCu-C17000, Al2024 and AISI 304, apart from the Ti-6Al-4V. Environmental properties such as energy consumption, CO2 footprint and water usage are given per unit mass. Consequently, the total environmental footprint is computed as the product of the total mass of the structure (M) and the specific energy or water usage.
 
-
-
-
-
-SimJEB only offers the results for Ti-6Al-4V. However, this project aimed at increasing the number of materials used. Using [Yepes Llorente and Morlier](https://github.com/mid2SUPAERO/HybML-EvoMatDesEco/) material database material properties and the environmantal impact of the structures can be obtained. The materials chosen are BeCu-C17000, Al2024, Ti-6Al-4V and AISI 304. All environmental properties are given by unit of mass, so the total footptrint is given by the total mass of the structure times the energy or water usage. For the CO2, however not only the CO2 during production but also the emissions during the life of the aircraft. Duriez and Morlier gives an approximate value of this last term given by the equation below.
-
+For CO2 emissions, however, the evaluation considers both the emissions during production (CO₂_prod) and the emissions generated throughout the the aircraft's lifetime (CO₂_life)  (Duriez et Morlier) .
 
 ```math
 CO_{2,T} = CO_{2,prod} +CO_{2,life} = CO_{2,prod} +98.8 \frac{ TC O2}{kg_{struct}} \cdot M
 ```
 
-The next step is to do a FEA to obtain the maximum stresses and displacements. SimJEB offers .fem files which can be read and used by Optistruct software from Altair. Using a Python code the .fem is modified to introduce new materials and by calling the execute the Python code is able to run the simulations for each material and structure. The results are then kept in an Excel file. 
+The next step involves performing Finite Element Analysis (FEA) to determine the maximum stresses and displacements of the brackets. The SimJEB dataset provides .fem files, which are compatible with OptiStruct software from Altair.
 
-The aim of the project is to find the structures with the lowest environmental impact. However, the fact that we are in a multi-objective optimization problem there is not a unique solution but a set of solutions, also know as the Pareto Front. The multi-objective optimization problem is defined below. The aim is to minimise stress, H20, CO2 and Energy and is subjected to the constraint that the maximum stress shouldn't be greater than the yield stress of the material. It is important to mention that the deformation is considered as a flexible constraint as there is no indication on the maximum displacement the structure can be subjected to.Using [Pymoo](https://pymoo.org/index.html)/) library a NSGA-2 algorithm can be used to obtain the results. 
+Using a Python script, the .fem files are modified to introduce new materials into the simulations. The script then executes the simulations for each material and structure. The results, including the computed stresses and displacements, are stored in an Excel file for further analysis and comparison.
 
-\begin{aligned}
+The aim of the project is to identify structures with the lowest environmental impact. However, because this is a multi-objective optimization problem, there is no single optimal solution but rather a Pareto Front—a set of solutions representing the trade-offs between conflicting objectives.
+
+The multi-objective optimization problem is defined as follows: the aim is to minimize stress, water usage, CO2 emissions, and energy consumption, subject to the constraint that the maximum stress does not exceed the yield stress of the material. It is important to note that deformation is considered a flexible constraint, as there is no specified maximum allowable displacement for the structures.
+```math
     & \min \sigma, H_2O, CO_2, E \\
     & \text{s.t. } \sigma -\sigma_{yield} \leq 0  \\
-\end{aligned}
+```
+
+
+Using the [Pymoo](https://pymoo.org/index.html)/) library, the NSGA-II algorithm can be applied to solve this optimization problem and identify the Pareto Front solutions.
 
 
 
