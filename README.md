@@ -41,7 +41,7 @@ The multi-objective optimization problem is defined as follows: the aim is to mi
 
 ```
 
-Using the [Pymoo](https://pymoo.org/index.html)/) library, the NSGA-II algorithm can be applied to solve this optimization problem and identify the Pareto Front solutions.
+Using the [Pymoo](https://pymoo.org/index.html) library, the NSGA-II algorithm can be applied to solve this optimization problem and identify the Pareto Front solutions.
 
 
 ## Files 
