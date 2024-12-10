@@ -49,8 +49,8 @@ Using the [Pymoo](https://pymoo.org/index.html) library, the NSGA-II algorithm c
 
 - Materials.xlsx: Excel containing the materials and their properties. It will be used as an input for the OptistructAuto Notebook.
 - FinalResults.xlsx: Excel with all the results obtained during the simulations.
-- OptistructAuto.ipynb: Jupyter Notebook that executes the OptiStruct command to simulate. Takes as an input the Materials.xlsx and the .fem files and writes the results in FinalResults.xlsx.
-- Pareto.ipynb : 
+- `OptistructAuto.ipynb`: Jupyter Notebook that executes the OptiStruct command to simulate. Takes as an input the Materials.xlsx and the .fem files and writes the results in FinalResults.xlsx.
+- `Pareto.ipynb` : Takes FinalResults.xlsx and computes the NSGA-II algorithm to find the Pareto Front.
 
 
 
