@@ -35,7 +35,7 @@ The multi-objective optimization problem is defined as follows: the aim is to mi
 
 ```math
 \begin{aligned}
-    & \min \sigma, H_2O, CO_2, E \\
+    & \min \sigma, H_2O(M, H_20_{s}), CO_2(M, C0_{2,s}), E(M, E_{s}) \\
     & \text{s.t. } \sigma - \sigma_{yield} \leq 0 \\
 \end{aligned}
 
